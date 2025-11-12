@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:football_shop/widgets/drawer.dart';
+import 'package:football_shop/screens/productlist_form.dart';
+import 'package:football_shop/widgets/product_card.dart';
 
 class ItemHomepage {
   final String name;
@@ -32,6 +35,10 @@ class MyHomePage extends StatelessWidget {
         ),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
+
+      // Drawer
+      drawer: const LeftDrawer(),
+      
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -75,7 +82,6 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-/// reusable InfoCard
 class InfoCard extends StatelessWidget {
   final String title;
   final String content;
@@ -95,51 +101,6 @@ class InfoCard extends StatelessWidget {
             const SizedBox(height: 8.0),
             Text(content),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-/// ItemCard menampilkan tombol berwarna dan memunculkan SnackBar pada tap
-class ItemCard extends StatelessWidget {
-  final ItemHomepage item;
-  const ItemCard(this.item, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: item.color,
-      borderRadius: BorderRadius.circular(12),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(12),
-        onTap: () {
-          // pesan sesuai tugas:
-          // "Kamu telah menekan tombol All Products"
-          // "Kamu telah menekan tombol My Products"
-          // "Kamu telah menekan tombol Create Product"
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(content: Text('Kamu telah menekan tombol ${item.name}')),
-            );
-        },
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(item.icon, color: Colors.white, size: 30.0),
-                const SizedBox(height: 6),
-                Text(
-                  item.name,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-          ),
         ),
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'menu.dart';
+import 'package:football_shop/screens/menu.dart';
 
 void main() {
   runApp(const MyApp());
