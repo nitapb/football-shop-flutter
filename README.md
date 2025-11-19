@@ -15,6 +15,9 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+JAWABAN TUGAS 9
+1. 
+
 JAWABAN TUGAS 8
 1. Navigator.push() digunakan untuk menambahkan halaman baru di atas halaman sebelumnya (menumpuk di navigation stack). Dengan Navigator.push(), pengguna masih bisa kembali ke halaman sebelumnya menggunakan tombol "Back". 
 Sementara itu, Navigator.pushReplacement() akan mengganti halaman saat ini dengan halaman baru, artinya halaman sebelumnya tidak dapat dikembalikan dengan tombol "Back" karena sudah dihapus dari stack.
