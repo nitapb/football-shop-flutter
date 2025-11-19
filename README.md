@@ -16,7 +16,45 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 JAWABAN TUGAS 9
-1. 
+1. embuatan model Dart sangat penting ketika bekerja dengan data JSON karena:
+
+Keuntungan menggunakan model Dart:
+1) Type safety
+Setiap atribut memiliki tipe jelas (String, int, bool, dll).
+→ Kesalahan seperti “int diperlakukan sebagai String” dapat dicegah sejak compile-time.
+2) Null-safety
+Dart memiliki null-safety ketat → model dapat memastikan field tidak null atau diberi default.
+3) Maintainability dan konsistensi struktur data
+Semua bagian aplikasi merujuk struktur data yang sama.
+Jika model di Django berubah, kita cukup memperbarui satu file Dart saja.
+4) Kemudahan parsing
+Fungsi fromJson dan toJson membuat konversi menjadi bersih dan sistematis.
+5) Error handling lebih mudah
+Validasi format dilakukan otomatis lewat model.
+
+Konsekuensi jika langsung memakai Map<String, dynamic>
+
+Struktur JSON bisa salah tanpa ada warning.
+Developer harus mengingat nama key manual → sangat rentan typo.
+Error baru muncul saat runtime (tidak aman).
+Data tidak terdokumentasi → sulit diperluas saat proyek besar.
+Tidak ada kontrak data → lebih sulit untuk bekerja dalam tim.
+
+Kesimpulan: Model Dart = lebih aman, lebih bersih, lebih maintainable.
+
+2. http:
+Package umum untuk melakukan request GET/POST standar.
+Tidak menyimpan sesi (stateless).
+Tidak membawa cookie, sehingga tidak cocok untuk endpoint yang membutuhkan autentikasi.
+
+CookieRequest (dari pbp_django_auth):
+
+Dibuat khusus untuk integrasi dengan Django.
+Menyimpan cookies session Django otomatis (misalnya sessionid).
+Digunakan untuk login, register, logout.
+Menyertakan cookie pada request berikutnya → membuat user tetap “logged in”.
+Bisa memanggil endpoint yang dilindungi authentication Django.
+
 
 JAWABAN TUGAS 8
 1. Navigator.push() digunakan untuk menambahkan halaman baru di atas halaman sebelumnya (menumpuk di navigation stack). Dengan Navigator.push(), pengguna masih bisa kembali ke halaman sebelumnya menggunakan tombol "Back". 
